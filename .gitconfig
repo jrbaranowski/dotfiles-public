@@ -1,0 +1,57 @@
+[user]
+#    name = YOUR NAME HERE
+#    email = YOUR EMAIL HERE
+
+[core]
+    autocrlf = false
+    editor = vim
+    excludefile = ~/.gitignore
+    filemode = false
+    pager = "less -RFX"
+    whitespace = blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+[alias]
+    br = branch
+    brc = ! sh -c 'git branch --merged | grep "${USER}" | xargs git branch -d
+    ci = commit
+    co = checkout
+    cp = cherry-pick
+    cpx = cherry-pick -x
+    dc = diff --cached
+    df = diff -w
+    dt = difftool
+    fap = fetch --all --prune
+    lg = log -p
+    sl = log --pretty=format:'%C(blue)%h%Creset|%C(green)%cd%Creset|%C(bold red)%an%Creset|%s'  --date=iso8601-strict --invert-grep --author='(no author)'
+    st = status
+    stu = status --untracked=no
+    who = shortlog -s --
+
+[color]
+    status = auto
+    branch = auto
+    interactive = auto
+    ui = auto
+    pager = true
+
+[push]
+    default = simple
+
+[rerere]
+    enabled = true
+
+[submodule]
+    fetchJobs = 4
+
+[diff]
+    compactionHeuristic = true
+    tool = vimdiff
+
+[difftool]
+    prompt = false
+
+[rebase]
+    autoStash = true
+
+[pull]
+    rebase = true
