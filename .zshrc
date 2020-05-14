@@ -20,7 +20,9 @@ function use_mine
     dotfile_fn="$(basename ${dotfile})"
     dotfile_actual=$(readlink "${dotfile}")
     my_file="${my_dir}/${dotfile_fn}"
-    if [[ -f ${my_file} ]]; then
+    if [[ ! -f ${dotfile} ]]; then
+        ln -sfn "${my_file}" "${dotfile}"
+    elif [[ -f ${my_file} ]]; then
         if [[ ${dotfile_actual} != ${my_file} ]]; then
             echo "Using ${dotfile_fn} from ${my_dir}"
             mkdir -p "${my_dir}/backup"
